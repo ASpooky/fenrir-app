@@ -1,0 +1,45 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+#Overall
+
+problem.txt
+
+#Frontend
+
+# dependencies
+/fenrir_front/node_modules
+/fenrir_front/.pnp
+/fenrir_front.pnp.js
+/fenrir_front.yarn/install-state.gz
+
+# testing
+/fenrir_front/coverage
+
+# next.js
+/fenrir_front/.next/
+/fenrir_front/out/
+
+# production
+/fenrir_front/build
+
+# misc
+/fenrir_front/.DS_Store
+/fenrir_front/*.pem
+
+# debug
+/fenrir_front/npm-debug.log*
+/fenrir_front/yarn-debug.log*
+/fenrir_front/yarn-error.log*
+
+# local env files
+/fenrir_front/.env*.local
+
+# vercel
+/fenrir_front/.vercel
+
+# typescript
+/fenrir_front/*.tsbuildinfo
+/fenrir_front/next-env.d.ts
+
+#Backend
+

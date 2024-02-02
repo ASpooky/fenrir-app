@@ -1,0 +1,38 @@
+.red {
+  filter: hue-rotate(150deg);
+}
+
+.deep-green {
+  filter: hue-rotate(250deg);
+}
+
+.green {
+  filter: hue-rotate(300deg);
+}
+
+.sky {
+  filter: hue-rotate(335deg);
+}
+
+.purple {
+  filter: hue-rotate(50deg);
+}
+
+.pink {
+  filter: hue-rotate(100deg);
+}
+
+.brown {
+  filter: hue-rotate(185deg);
+}
+
+.default-marker {
+  /* マーカーの中心を調整 */
+  margin-left: -12.5px !important;
+  margin-top: -41px !important;
+}
+
+.marker {
+  /* マーカーの中心を調整 */
+  margin-top: -35px !important;
+}
