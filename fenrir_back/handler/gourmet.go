@@ -19,29 +19,27 @@ func NewGourmetHandler() *GourmetHandler {
 	return &GourmetHandler{}
 }
 
-type Filters struct {
-	key string
-	lat string
-	lng string
-	rng string
-}
-
 func (gh *GourmetHandler) GetGourmet(c echo.Context) error {
 	//検索クエリをセットしてhotpepperのapiから帰ってきたxmlのレスポンスをjsonにして返す.
-	filter := Filters{
-		key: "d43f3088b310b8a2",
-		lat: "34.3924",
-		lng: "132.4897",
-		rng: "1000",
-	}
+
+	key := "d43f3088b310b8a2"
+
+	lat := c.QueryParam("lat")
+	lng := c.QueryParam("lng")
+	rng := c.QueryParam("range")
+	str := c.QueryParam("start")
+
 	queryParams := url.Values{}
-	queryParams.Set("key", filter.key)
-	queryParams.Set("lat", filter.lat)
-	queryParams.Set("lng", filter.lng)
-	queryParams.Set("range", filter.rng)
+	queryParams.Set("key", key)
+	queryParams.Set("lat", lat)
+	queryParams.Set("lng", lng)
+	queryParams.Set("range", rng)
+	//orderはおすすめ順にする
+	queryParams.Set("order", "4")
+	//ページング対応
+	queryParams.Set("start", str)
 
 	queryString := queryParams.Encode()
-
 	URL := fmt.Sprintf("http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?%s", queryString)
 
 	response, err := http.Get(URL)
