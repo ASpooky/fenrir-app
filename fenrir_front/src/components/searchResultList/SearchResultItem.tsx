@@ -4,9 +4,13 @@ import { Marks } from "./components/Marks";
 import { MarksIndex } from "@/types/marks";
 import { AruNashiToBoolean } from "@/utils/AruNashiToBoolean";
 
-export function SearchResultItem(props: { shop: Shop; setFocus: any }) {
+export function SearchResultItem(props: {
+  shop: Shop;
+  setFocus: any;
+  setModalContent: any;
+  setModalVisible: React.Dispatch<React.SetStateAction<boolean>>;
+}) {
   const shop = props.shop;
-  console.log(shop);
 
   const marksIndex: MarksIndex = {
     pet: AruNashiToBoolean(props.shop.pet),
@@ -17,6 +21,11 @@ export function SearchResultItem(props: { shop: Shop; setFocus: any }) {
     wifi: AruNashiToBoolean(props.shop.wifi),
   };
 
+  const titleClick = () => {
+    //props.setModalContent();
+    props.setModalVisible(true);
+  };
+
   return (
     <div className="border p-5">
       <div className="flex items-center justify-between gap-6">
@@ -24,18 +33,29 @@ export function SearchResultItem(props: { shop: Shop; setFocus: any }) {
           <img
             src={shop.logo_image}
             alt=""
-            className="rounded-full w-12 h-12"
+            className="rounded-xl w-12 h-12 border-2"
           />
-          <div className="flex flex-col items-start gap-2 overflow-hidden">
-            <p className="text-lg font-sans font-bold underline text-blue-500 underline-offset-2 whitespace-nowrap hover:cursor-pointer">
-              {shop.name}
-            </p>
+          <div className="flex flex-col items-start gap-2">
+            <button
+              onClick={titleClick}
+              className="flex text-lg font-sans font-bold underline text-blue-500 hover:text-blue-600 w-52 md:w-full underline-offset-2 whitespace-nowrap"
+            >
+              <p className="truncate">{shop.name}</p>
+            </button>
             <Marks marksIndex={marksIndex}></Marks>
+
+            <div className="pt-2">
+              <p className="font-sans text-slate-700">
+                <span className="font-semibold">アクセス :</span>
+                {shop.access}
+              </p>
+            </div>
           </div>
         </div>
+
         {/* ピンのsvgは*/}
         <button
-          className="w-10 h-10 text-slate-300 hover:text-red-300 focus:text-red-500"
+          className="w-10 h-10 text-slate-300 hover:text-red-300 focus:text-red-500 hidden md:inline-block"
           onClick={() => {
             props.setFocus({
               latitude: Number(shop.lat),
@@ -49,7 +69,7 @@ export function SearchResultItem(props: { shop: Shop; setFocus: any }) {
             x="0px"
             y="0px"
             viewBox="0 0 512 512"
-            className="fill-current hover:cursor-pointer"
+            className="fill-current hover:cursor-pointer w-10"
           >
             <g>
               <path

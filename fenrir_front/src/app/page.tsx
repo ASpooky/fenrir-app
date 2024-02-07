@@ -3,11 +3,8 @@
 import dynamic from "next/dynamic";
 import { useEffect, useState, useMemo } from "react";
 import { Search } from "@/components/search/Search";
-
-type Location = {
-  latitude: number;
-  longtitude: number;
-};
+import { Location } from "@/types/location";
+import { DetailModal } from "@/components/detailModal/DetailModal";
 
 export default function Home() {
   //location:{latitude(緯度),longtitude(経度)}
@@ -40,7 +37,6 @@ export default function Home() {
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
       (position) => {
-        console.log(position.coords.latitude, position.coords.longitude);
         setLocation({
           latitude: position.coords.latitude,
           longtitude: position.coords.longitude,
@@ -69,6 +65,7 @@ export default function Home() {
         radius={radius}
         setRadius={setRadius}
         setFocus={setFocusedShopLocation}
+        location={location}
       ></Search>
     </div>
   );

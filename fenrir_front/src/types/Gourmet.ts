@@ -117,9 +117,9 @@ export interface Shop {
 }
 
 export interface GourmetJsonResponse {
-  apiVersion: string;
-  resultAvailable: string;
-  resultsReturned: string;
-  resultStart: string;
+  api_version: string;
+  results_available: string;
+  results_returned: string;
+  results_Start: string;
   shop: Shop[];
 }

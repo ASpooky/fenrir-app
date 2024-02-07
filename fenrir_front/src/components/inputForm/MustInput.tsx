@@ -1,15 +1,27 @@
 import React, { useState } from "react";
 import { useGourmetQuery } from "@/hooks/useGourmetQuery";
+import { Location } from "@/types/location";
+import { RadiusToRangeValue } from "@/utils/RadiusToRangeValue";
 
-export function InputForm(props: { setRadius: any; setSearchList: any }) {
+export function InputForm(props: {
+  setRadius: any;
+  setSearchList: any;
+  location: Location;
+}) {
   const [searchValue, setSarchValue] = useState(0);
 
+  //半径から五段階のrange valueに変換している.
   const searchButtonClick = async () => {
     props.setRadius(searchValue);
-    let data = await useGourmetQuery();
+    let data = await useGourmetQuery(
+      props.location,
+      RadiusToRangeValue(searchValue),
+      "1" //start
+    );
     props.setSearchList(data);
   };
 
+  //mapの表示に使用するstate.
   const searchFormChange = (e: any) => {
     setSarchValue(e.target.value);
   };
