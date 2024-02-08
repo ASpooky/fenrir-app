@@ -8,7 +8,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="h-screen flex flex-col">
+      <body className="h-screen flex flex-col bg-gray-100">
         <main className="grow">{children}</main>
         <Footer />
       </body>

@@ -7,6 +7,7 @@ import (
 	"log"
 	"net/http"
 	"net/url"
+	"os"
 
 	"github.com/labstack/echo/v4"
 
@@ -19,10 +20,11 @@ func NewGourmetHandler() *GourmetHandler {
 	return &GourmetHandler{}
 }
 
+// .envファイルにKEYという名前でhotpepperから入手したKEYを設定しておく.
+var KEY = os.Getenv("KEY")
+
 func (gh *GourmetHandler) GetGourmet(c echo.Context) error {
 	//検索クエリをセットしてhotpepperのapiから帰ってきたxmlのレスポンスをjsonにして返す.
-
-	key := "d43f3088b310b8a2"
 
 	lat := c.QueryParam("lat")
 	lng := c.QueryParam("lng")
@@ -30,7 +32,7 @@ func (gh *GourmetHandler) GetGourmet(c echo.Context) error {
 	str := c.QueryParam("start")
 
 	queryParams := url.Values{}
-	queryParams.Set("key", key)
+	queryParams.Set("key", KEY)
 	queryParams.Set("lat", lat)
 	queryParams.Set("lng", lng)
 	queryParams.Set("range", rng)

@@ -42,4 +42,5 @@ problem.txt
 /fenrir_front/next-env.d.ts
 
 #Backend
+/fenrir_back/.env
 

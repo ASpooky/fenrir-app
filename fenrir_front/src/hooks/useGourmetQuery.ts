@@ -23,6 +23,8 @@ export async function useGourmetQuery(
     headers: {
       "Content-Type": "application/json",
     },
+    cache: "force-cache",
+    next: { revalidate: 3600 * 24 },
   })
     .then((res) => {
       return res.json();

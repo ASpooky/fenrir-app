@@ -10,14 +10,16 @@ export function SearchResultList(props: {
 }) {
   if (props.resultAvailable == 0) {
     return (
-      <div>
-        <p className="text-slate-500">近くにお店がないかもしれません。。</p>
+      <div className=" pb-16">
+        <p className="text-slate-500">
+          検索範囲内にお店がないかもしれません。。
+        </p>
       </div>
     );
   }
   if (props.shopList == undefined) {
     return (
-      <div>
+      <div className="pb-16">
         <p className="text-slate-500">Let's Search!</p>
       </div>
     );
@@ -29,22 +31,22 @@ export function SearchResultList(props: {
   }, [props.shopList]);
 
   const [modalVisible, setModalVisible] = useState(false);
-  const [modalContent, setModalContent] = useState();
+  const [modalContent, setModalContent] = useState<Shop>();
 
   return (
-    <div>
-      {modalVisible ? (
-        <DetailModal
-          modalContent={modalContent}
-          setModalVisible={setModalVisible}
-        ></DetailModal>
-      ) : (
-        ""
-      )}
+    <div className="pb-5">
       <div
-        className="overflow-y-auto h-96 md:w-full max-w-2xl border"
+        className="overflow-y-auto h-96 md:w-full max-w-2xl border-t rounded-b"
         id="shopList"
       >
+        {modalVisible ? (
+          <DetailModal
+            modalContent={modalContent}
+            setModalVisible={setModalVisible}
+          ></DetailModal>
+        ) : (
+          ""
+        )}
         {props.shopList.map((s) => {
           return (
             <SearchResultItem
