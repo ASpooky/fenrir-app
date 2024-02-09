@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import { useGourmetQuery } from "@/hooks/useGourmetQuery";
 import { Location } from "@/types/location";
 import { RadiusToRangeValue } from "@/utils/RadiusToRangeValue";
+import { GourmetJsonResponse } from "@/types/Gourmet";
 
 export function InputForm(props: {
-  setRadius: any;
-  setSearchList: any;
+  setRadius: React.Dispatch<React.SetStateAction<number>>;
+  setSearchList: React.Dispatch<
+    React.SetStateAction<GourmetJsonResponse | undefined>
+  >;
   location: Location;
 }) {
   const [searchValue, setSarchValue] = useState(0);

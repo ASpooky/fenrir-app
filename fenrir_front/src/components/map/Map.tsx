@@ -18,7 +18,7 @@ L.Icon.Default.mergeOptions({
   shadowUrl: markerShadow.src,
 });
 
-const colorMarker = (color: any) => {
+const colorMarker = (color: string) => {
   return L.icon({
     iconUrl: markerIcon.src,
     shadowUrl: markerShadow.src,

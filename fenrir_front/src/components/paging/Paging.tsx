@@ -3,12 +3,14 @@ import { Pagination } from "@mui/material";
 import { useGourmetQuery } from "@/hooks/useGourmetQuery";
 import { Location } from "@/types/location";
 import { RadiusToRangeValue } from "@/utils/RadiusToRangeValue";
+import { GourmetJsonResponse } from "@/types/Gourmet";
 
 export function Paging(props: {
   allPages: number;
   currentPage: number;
-  onChange: any;
-  setSearchList: any;
+  setSearchList: React.Dispatch<
+    React.SetStateAction<GourmetJsonResponse | undefined>
+  >;
   location: Location;
   radius: number;
 }) {

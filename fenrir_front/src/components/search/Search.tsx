@@ -9,7 +9,7 @@ import { Paging } from "../paging/Paging";
 export function Search(props: {
   radius: number;
   location: Location;
-  setRadius: any;
+  setRadius: React.Dispatch<React.SetStateAction<number>>;
   setFocus: any;
 }) {
   const [searchList, setSearchList] = useState<GourmetJsonResponse>();
@@ -29,9 +29,6 @@ export function Search(props: {
           Number(searchList ? searchList.results_available : 0) / 10
         )}
         currentPage={1}
-        onChange={() => {
-          console.log("click!");
-        }}
         setSearchList={setSearchList}
         location={props.location}
         radius={props.radius}

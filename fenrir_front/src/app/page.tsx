@@ -4,8 +4,6 @@ import dynamic from "next/dynamic";
 import { useEffect, useState, useMemo } from "react";
 import { Search } from "@/components/search/Search";
 import { Location } from "@/types/location";
-import { DetailModal } from "@/components/detailModal/DetailModal";
-import { Shop } from "@/types/Gourmet";
 
 export default function Home() {
   //location:{latitude(緯度),longtitude(経度)}

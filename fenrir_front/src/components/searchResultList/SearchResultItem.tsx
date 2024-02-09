@@ -7,7 +7,7 @@ import { AruNashiToBoolean } from "@/utils/AruNashiToBoolean";
 export function SearchResultItem(props: {
   shop: Shop;
   setFocus: any;
-  setModalContent: any;
+  setModalContent: React.Dispatch<React.SetStateAction<Shop | undefined>>;
   setModalVisible: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
   const shop = props.shop;

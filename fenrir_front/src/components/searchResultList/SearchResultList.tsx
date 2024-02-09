@@ -6,7 +6,7 @@ import { DetailModal } from "../detailModal/DetailModal";
 export function SearchResultList(props: {
   resultAvailable: number;
   shopList: Shop[] | undefined;
-  setFocus: any;
+  setFocus: React.Dispatch<React.SetStateAction<Location>>;
 }) {
   useEffect(() => {
     const elem = document.getElementById("shopList");
@@ -42,7 +42,7 @@ export function SearchResultList(props: {
       >
         {modalVisible ? (
           <DetailModal
-            modalContent={modalContent}
+            modalContent={modalContent!}
             setModalVisible={setModalVisible}
           ></DetailModal>
         ) : (

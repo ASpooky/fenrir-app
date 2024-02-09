@@ -1,8 +1,9 @@
 import React from "react";
+import { Shop } from "@/types/Gourmet";
 
 export function DetailModal(props: {
-  modalContent: any;
-  setModalVisible: any;
+  modalContent: Shop;
+  setModalVisible: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
   const bgClickHandler = (e: any) => {
     if (e.target.id === "container") props.setModalVisible(false);
