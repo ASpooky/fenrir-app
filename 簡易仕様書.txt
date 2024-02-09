@@ -13,12 +13,12 @@ windows11
 Microsoft Edge
 
 ### 開発言語
-Go
-TypeScript
+Go (v 1.20.3)
+TypeScript (v 5.3.3)
 
 ### フレームワーク
-Next.js
-Echo
+Next.js (v 14.1.0)
+Echo (v 4.11.4)
 
 ## 開発期間
 2週間 
