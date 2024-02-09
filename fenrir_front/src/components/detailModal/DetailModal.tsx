@@ -8,8 +8,6 @@ export function DetailModal(props: {
     if (e.target.id === "container") props.setModalVisible(false);
   };
 
-  console.log(props.modalContent);
-
   return (
     <div
       id="container"
@@ -18,11 +16,11 @@ export function DetailModal(props: {
     >
       <div className="bg-white rounded-lg shadow-2xl w-3/4 max-w-2xl">
         <div className="flex justify-center items-center bg-zinc-800 text-white">
-          <div className="font-bold grow  flex justify-center items-center gap-2 h-12 text-lg">
+          <div className="font-bold grow  flex justify-center items-center gap-2 h-12 text-sm md:text-lg">
             {props.modalContent.name}
           </div>
           <button
-            className="relative right-9"
+            className="relative right-4 md:right-9"
             onClick={() => {
               props.setModalVisible(false);
             }}
@@ -31,8 +29,8 @@ export function DetailModal(props: {
           </button>
         </div>
         <div className="flex flex-col justify-center items-center p-5 gap-5">
-          <img src={props.modalContent.photo.pc.m} alt="" className="w-2/3" />
-          <div className="flex flex-col justify-center items-start font-monos font-bold gap-2 px-3 md:px-10 text-slate-700">
+          <img src={props.modalContent.photo.pc.l} alt="" className=" h-52" />
+          <div className="flex flex-col justify-center items-start font-monos font-bold gap-2 px-3 text-sm md:text-lg md:px-10 text-slate-700">
             <div>
               住所 :<div className="ml-5">{props.modalContent.address}</div>
             </div>

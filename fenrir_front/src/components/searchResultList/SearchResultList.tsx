@@ -8,6 +8,14 @@ export function SearchResultList(props: {
   shopList: Shop[] | undefined;
   setFocus: any;
 }) {
+  useEffect(() => {
+    const elem = document.getElementById("shopList");
+    elem?.scrollTo({ top: 0, behavior: "smooth" });
+  }, [props.shopList, props.resultAvailable]);
+
+  const [modalVisible, setModalVisible] = useState(false);
+  const [modalContent, setModalContent] = useState<Shop>();
+
   if (props.resultAvailable == 0) {
     return (
       <div className=" pb-16">
@@ -17,6 +25,7 @@ export function SearchResultList(props: {
       </div>
     );
   }
+
   if (props.shopList == undefined) {
     return (
       <div className="pb-16">
@@ -24,14 +33,6 @@ export function SearchResultList(props: {
       </div>
     );
   }
-
-  useEffect(() => {
-    const elem = document.getElementById("shopList");
-    elem?.scrollTo({ top: 0, behavior: "smooth" });
-  }, [props.shopList]);
-
-  const [modalVisible, setModalVisible] = useState(false);
-  const [modalContent, setModalContent] = useState<Shop>();
 
   return (
     <div className="pb-5">

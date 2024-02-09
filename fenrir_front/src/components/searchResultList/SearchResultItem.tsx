@@ -38,7 +38,7 @@ export function SearchResultItem(props: {
           <div className="flex flex-col items-start gap-2">
             <button
               onClick={titleClick}
-              className="flex text-lg font-sans font-bold underline text-blue-500 hover:text-blue-600 w-52 md:w-full underline-offset-2 whitespace-nowrap"
+              className="flex text-lg font-sans font-bold underline text-blue-500 hover:text-blue-600 w-52 lg:w-full underline-offset-2 whitespace-nowrap"
             >
               <p className="truncate">{shop.name}</p>
             </button>

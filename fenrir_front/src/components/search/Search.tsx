@@ -17,7 +17,7 @@ export function Search(props: {
   return (
     <div className="relative m-5 max-w-5xl flex flex-col justify-center items-center md:w-2/3 bg-white shadow-lg">
       <div className="bg-[#fcd34d] rounded-t text-center font-sans font-bold text-xl md:text-2xl p-4 md:font-mono w-full">
-        <p className="">近場の飲食店を探してみましょう!</p>
+        <p className="">近場の飲食店を探してみましょう</p>
       </div>
       <InputForm
         setRadius={props.setRadius}

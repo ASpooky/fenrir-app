@@ -36,20 +36,23 @@ export default function Home() {
 
   //page表示時に一度だけ現在地の情報を取得
   useEffect(() => {
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        setLocation({
-          latitude: position.coords.latitude,
-          longtitude: position.coords.longitude,
-        });
-      },
-      (error) => {
-        alert(
-          "現在地が取得できませんでした。このアプリケーションには現在地の情報が必要になります。"
-        );
-        console.log(error);
-      }
-    );
+    async function getGeolocation() {
+      await navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setLocation({
+            latitude: position.coords.latitude,
+            longtitude: position.coords.longitude,
+          });
+        },
+        (error) => {
+          alert(
+            "現在地が取得できませんでした。このアプリケーションには現在地の情報が必要になります。"
+          );
+          console.log(error);
+        }
+      );
+    }
+    getGeolocation();
   }, []);
 
   return (
